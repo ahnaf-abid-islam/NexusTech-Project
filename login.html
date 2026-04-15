@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexusSec | Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter,sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#050b1a;
+  color:#eef2ff;
+}
+
+.box{
+  width:340px;
+  padding:30px;
+  background:#0f172a;
+  border:1px solid #1e293b;
+  border-radius:16px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+h2{
+  margin-bottom:20px;
+  color:#38bdf8;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:10px;
+  border:1px solid #334155;
+  background:#020617;
+  color:#fff;
+  outline:none;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(90deg,#38bdf8,#2dd4bf);
+  color:#020617;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+button:hover{
+  transform:scale(1.02);
+}
+
+.bottom{
+  margin-top:12px;
+  font-size:0.9rem;
+  text-align:center;
+  color:#94a3b8;
+}
+
+a{
+  color:#38bdf8;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>Agent Login</h2>
+
+  <input id="user" type="text" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
+
+  <button onclick="login()">Login</button>
+
+  <div class="bottom">
+    No account? <a href="register.html">Register</a>
+  </div>
+</div>
+
+<script>
+function login(){
+  const user = document.getElementById("user").value;
+  const pass = document.getElementById("pass").value;
+
+  const savedUser = localStorage.getItem("user");
+  const savedPass = localStorage.getItem("pass");
+
+  if(!user || !pass){
+    alert("Fill all fields");
+    return;
+  }
+
+  if(user === savedUser && pass === savedPass){
+    localStorage.setItem("auth", "true");
+    window.location.href = "dashboard.html";
+  } else {
+    alert("Invalid credentials");
+  }
+}
+
+</script>
+
+</body>
+</html>

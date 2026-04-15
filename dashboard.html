@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexusSec | Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter,sans-serif;
+}
+
+body{
+  background:#050b1a;
+  color:#eef2ff;
+  min-height:100vh;
+}
+
+/* NAV */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 30px;
+  background:#0f172a;
+  border-bottom:1px solid #1e293b;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:700;
+  color:#38bdf8;
+}
+
+.logout{
+  padding:10px 16px;
+  border:none;
+  border-radius:10px;
+  background:#ef4444;
+  color:white;
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* HERO */
+.container{
+  padding:40px;
+}
+
+.card{
+  background:#0f172a;
+  border:1px solid #1e293b;
+  padding:25px;
+  border-radius:16px;
+  margin-bottom:20px;
+}
+
+h1{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.highlight{
+  color:#2dd4bf;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:20px;
+}
+
+.box{
+  background:#020617;
+  border:1px solid #1e293b;
+  padding:18px;
+  border-radius:12px;
+  transition:0.2s;
+}
+
+.box:hover{
+  transform:translateY(-5px);
+  border-color:#38bdf8;
+}
+
+.small{
+  color:#94a3b8;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="navbar">
+  <div class="logo">NexusSec Dashboard</div>
+  <button class="logout" onclick="logout()">Logout</button>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <div class="card">
+    <h1>Welcome, <span class="highlight" id="username">User</span></h1>
+    <p class="small">You are now inside the secure NexusSec dashboard system.</p>
+  </div>
+
+  <div class="grid">
+    <div class="box">
+      <h3>Security Status</h3>
+      <p class="small">All systems operational</p>
+    </div>
+
+    <div class="box">
+      <h3>Account Info</h3>
+      <p class="small" id="email">Loading...</p>
+    </div>
+
+    <div class="box">
+      <h3>Modules</h3>
+      <p class="small">Ethical hacking basics unlocked</p>
+    </div>
+
+    <div class="box">
+      <h3>Activity</h3>
+      <p class="small">No recent actions</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// check login
+if(localStorage.getItem("user") === null){
+  window.location.href = "login.html";
+}
+
+// load data
+document.getElementById("username").innerText = localStorage.getItem("user");
+document.getElementById("email").innerText = localStorage.getItem("email");
+
+// logout
+function logout(){
+  localStorage.removeItem("user");
+  localStorage.removeItem("pass");
+  localStorage.removeItem("email");
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

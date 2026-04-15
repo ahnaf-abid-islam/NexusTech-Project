@@ -478,7 +478,7 @@ html {
 </section>
 
 <div class="cta" id="floatingCta">
-    <i class="fas fa-chalkboard"></i> Join Live Classes
+    <i class="fas fa-chalkboard"></i>Claim Your Spot by <a href="login.html">Logging in</a> or by <a href="register.html">Registerring </a> NOW!
 </div>
 
 <footer class="footer" id="contact">
@@ -494,6 +494,7 @@ html {
                 <span><i class="fab fa-twitter"></i> Twitter</span>
             </div>
         </div>
+        
         <div class="footer-right">
             <div class="back2top" id="backToTopBtn">
                 <i class="fas fa-arrow-up"></i> Back to surface
@@ -502,6 +503,8 @@ html {
         </div>
     </div>
 </footer>
+
+
 
 <script>
 // ========================
@@ -549,7 +552,6 @@ window.addEventListener("resize", () => {
 updateCtaPosition();
 
 // 2. SMART SMOOTH SCROLL for nav and buttons
-document.querySelectorAll('.nav-links a, #heroExploreBtn, #ctaNavBtn, .back2top, .cta, #classesLink').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         let targetId = null;
         // handle different buttons
@@ -576,14 +578,9 @@ document.querySelectorAll('.nav-links a, #heroExploreBtn, #ctaNavBtn, .back2top,
             }
         }
     });
-});
+;
 
 // 3. interactive floating CTA alert with modern feedback + optional class registration modal (simple)
-const floatingCta = document.getElementById("floatingCta");
-floatingCta.addEventListener("click", () => {
-    // mini modern toast simulation
-    showFancyToast("✨ Welcome! Our live hacking classes start every Monday. Secure your spot!");
-});
 
 // custom toast notification for modern look (without extra divs pollution)
 function showFancyToast(message) {
