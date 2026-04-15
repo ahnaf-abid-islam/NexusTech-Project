@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>NexusSec | Ethical Hacking & Cyber Intelligence</title>
+<!-- Google Fonts & Modern Font Stack -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+<!-- Font Awesome 6 (free icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #050b1a;
+    color: #eef2ff;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+/* modern glassmorphism + smooth transitions */
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(5, 11, 26, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #cbd5e6;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: 0.2s;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #38bdf8;
+    left: 0;
+    bottom: -6px;
+    border-radius: 2px;
+    transition: 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-btn {
+    padding: 0.5rem 1.3rem;
+    background: linear-gradient(95deg, #38bdf8, #2dd4bf);
+    color: #0a0f1f;
+    border: none;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+}
+
+.nav-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+}
+
+/* HERO SECTION with modern layout */
+.hero-container {
+    display: flex;
+    gap: 3rem;
+    padding: 5rem 2.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-text {
+    flex: 1.2;
+    min-width: 280px;
+}
+
+.hero-text h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #f0f9ff, #7dd3fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.hero-text p {
+    font-size: 1.05rem;
+    color: #b9c7da;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.12);
+    border-left: 3px solid #38bdf8;
+    padding: 0.4rem 1rem;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+}
+
+.image-wrapper {
+    flex: 0.9;
+    display: flex;
+    justify-content: center;
+}
+
+#right {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 32px;
+    box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    transition: transform 0.3s ease;
+}
+
+#right:hover {
+    transform: scale(1.01);
+}
+
+/* modern cards for learn section */
+.learn {
+    padding: 4rem 2.5rem;
+    background: #07112b;
+    border-radius: 48px 48px 0 0;
+    margin-top: 1rem;
+}
+
+.learn-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+.learn-header h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    background: linear-gradient(120deg, #ffffff, #7aa9ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+}
+
+.learn-header p {
+    color: #9aa9c1;
+}
+
+.modern-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background: rgba(15, 25, 45, 0.6);
+    backdrop-filter: blur(4px);
+    border-radius: 2rem;
+    padding: 1.8rem 2rem;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    transition: all 0.25s;
+}
+
+.info-card:hover {
+    border-color: #38bdf870;
+    background: rgba(20, 32, 58, 0.7);
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1rem;
+}
+
+.card-title i {
+    font-size: 2rem;
+    color: #38bdf8;
+}
+
+.card-title h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #e2e8ff;
+}
+
+.info-card p {
+    color: #cbd5e6;
+    line-height: 1.6;
+}
+
+.type-group {
+    margin-top: 1.2rem;
+    padding-left: 0.5rem;
+    border-left: 3px solid #38bdf8;
+}
+
+.type-group h3 {
+    font-size: 1.3rem;
+    margin: 1rem 0 0.5rem 0;
+    color: #b9e2ff;
+}
+
+/* floating CTA refined */
+.cta {
+    position: fixed;
+    right: 28px;
+    bottom: 32px;
+    background: linear-gradient(135deg, #38bdf8, #2563eb);
+    color: white;
+    padding: 14px 26px;
+    border-radius: 60px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 15px 30px -10px #1e40af60;
+    z-index: 99;
+    transition: 0.25s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    border: none;
+    backdrop-filter: blur(4px);
+}
+
+.cta i {
+    font-size: 1.2rem;
+}
+
+.cta:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #4bc0ff, #2b6eff);
+}
+
+.stop {
+    position: absolute;
+    bottom: 140px;
+    right: 28px;
+}
+
+/* footer premium */
+.footer {
+    background: #020617;
+    padding: 3rem 2.5rem;
+    border-top: 1px solid #1e293b;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.footer-left h2 {
+    color: #38bdf8;
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-left p {
+    color: #8ca3c0;
+}
+
+.socials {
+    display: flex;
+    gap: 1.8rem;
+    margin-top: 1rem;
+}
+
+.socials span {
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.socials span i {
+    font-size: 1.3rem;
+}
+
+.socials span:hover {
+    color: #38bdf8;
+    transform: translateY(-3px);
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.back2top {
+    background: #1e293b;
+    padding: 0.6rem 1.2rem;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 0.85rem;
+}
+
+.back2top:hover {
+    background: #38bdf8;
+    color: #020617;
+}
+
+/* responsiveness */
+@media(max-width: 900px) {
+    .navbar {
+        padding: 0.8rem 1.5rem;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .nav-links {
+        gap: 1.2rem;
+    }
+    .hero-container {
+        flex-direction: column;
+        padding: 2.5rem 1.5rem;
+    }
+    .hero-text h1 {
+        font-size: 2.4rem;
+    }
+    .learn {
+        padding: 2.5rem 1.5rem;
+    }
+    .cta {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        right: 16px;
+        bottom: 20px;
+    }
+    .stop {
+        bottom: 110px;
+        right: 16px;
+    }
+    .card-title h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* smooth scroll offset for anchor */
+html {
+    scroll-padding-top: 85px;
+}
+
+/* text selection */
+::selection {
+    background: #38bdf8;
+    color: #050b1a;
+}
+</style>
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo"><i class="fas fa-shield-haltered" style="margin-right: 8px;"></i>Nexus<span style="color:#38bdf8">Tech</span></div>
+    <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#basics">Learn</a>
+        <a href="#contact">Contact</a>
+        <a href="#classes" id="classesLink">Classes</a>
+    </nav>
+    <button class="nav-btn" id="ctaNavBtn"><i class="fas fa-rocket"></i> Get Started</button>
+</header>
+
+<div class="hero-container" id="home">
+    <div class="hero-text">
+        <div class="hero-badge"><i class="fas fa-terminal"></i> ethical hacking · red team mindset</div>
+        <h1>Decode the <span style="color:#38bdf8;">digital frontier</span> responsibly</h1>
+        <p>Step into the world of offensive & defensive security. Understand vulnerabilities, safeguard assets, and master modern cybersecurity techniques used by industry leaders. Become the guardian of tomorrow's internet.</p>
+        <button class="nav-btn" id="heroExploreBtn" style="background: #2dd4bf; box-shadow: 0 8px 18px #2dd4bf30;">Explore Modules <i class="fas fa-arrow-right"></i></button>
+    </div>
+    <div class="image-wrapper">
+        <img id="right" src="https://plus.unsplash.com/premium_photo-1733317302666-82fb00a68109?w=600&auto=format" alt="Cyber Security Visualization" loading="eager">
+    </div>
+</div>
+
+<section class="learn" id="basics">
+    <div class="learn-header">
+        <h1><i class="fas fa-brain"></i> Core intelligence</h1>
+        <p>Foundational pillars of ethical hacking & defensive strategies — from reconnaissance to zero-day mitigation.</p>
+    </div>
+
+    <div class="modern-grid">
+        <div class="info-card">
+            <div class="card-title">
+                <i class="fas fa-shield-virus"></i>
+                <h2>Cyber Security</h2>
+            </div>
+            <p>Cyber security isn't just about tools — it's a mindset. Protecting data integrity, availability, and confidentiality across networks, cloud, and endpoints. Modern SOC, threat hunting, and risk assessment frameworks like NIST & MITRE ATT&CK.</p>
+        </div>
+
+        <div class="info-card">
+            <div class="card-title">
+                <i class="fas fa-fish"></i>
+                <h2>Phishing & Social Engineering</h2>
+            </div>
+            <p>Human layer is the weakest link. Learn to craft realistic simulations, spot red flags, and implement next-gen email filtering, DMARC, and security awareness training that actually works. Phishing resistant MFA and zero-trust architecture.</p>
+        </div>
+
+        <div class="info-card">
+            <div class="card-title">
+                <i class="fas fa-code-branch"></i>
+                <h2>Types of Hacking</h2>
+            </div>
+            <p>Ethical boundaries define the hacker's path. Understand the motives, legality, and impact of different hacking categories:</p>
+            <div class="type-group">
+                <h3><i class="fas fa-skull-crosswalk"></i> Black Hat Hacking (Illegal)</h3>
+                <p>Unauthorized intrusion for personal gain, data theft, or sabotage. Black hats exploit zero-days and sell data on darknet markets — high risk, severe penalties.</p>
+                <h3><i class="fas fa-hat-cowboy"></i> White Hat Hacking (Ethical / Legal)</h3>
+                <p>Authorized professionals who find vulnerabilities before adversaries. Certifications like OSCP, CEH, and bug bounty programs reward ethical disclosure. Trusted defenders of the cyber realm.</p>
+                <h3><i class="fas fa-mask"></i> Grey Hat (Mixed)</h3>
+                <p>Operates between both worlds — often finds flaws without permission but discloses them, sometimes for recognition. Legal gray area, but essential for awareness.</p>
+            </div>
+        </div>
+        
+        <div class="info-card">
+            <div class="card-title">
+                <i class="fas fa-chalkboard-user"></i>
+                <h2>Live Labs & Simulators</h2>
+            </div>
+            <p>Hands-on practice in isolated environments: penetration testing, reverse engineering, privilege escalation, and log analysis. Real-world scenarios built for next-gen defenders.</p>
+        </div>
+    </div>
+</section>
+
+<div class="cta" id="floatingCta">
+    <i class="fas fa-chalkboard"></i> Join Live Classes
+</div>
+
+<footer class="footer" id="contact">
+    <div class="footer-content">
+        <div class="footer-left">
+            <h2><i class="fas fa-laptop-code"></i> NexusTech</h2>
+            <p>Ethical Hacking Academy — where curiosity meets responsibility.</p>
+            <p style="margin-top: 12px;"><i class="fas fa-envelope"></i> hello@nexussec.io</p>
+            <div class="socials">
+                <span><i class="fab fa-github"></i> GitHub</span>
+                <span><i class="fab fa-youtube"></i> YouTube</span>
+                <span><i class="fab fa-discord"></i> Discord</span>
+                <span><i class="fab fa-twitter"></i> Twitter</span>
+            </div>
+        </div>
+        <div class="footer-right">
+            <div class="back2top" id="backToTopBtn">
+                <i class="fas fa-arrow-up"></i> Back to surface
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.75rem;">© 2025 NexusSec — defend the future.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ========================
+// MODERN INTERACTIONS & FIXES
+// ========================
+
+// 1. FLOATING CTA stop logic (improved and smooth)
+const ctaButton = document.getElementById("floatingCta");
+const footerElem = document.getElementById("contact");
+
+function updateCtaPosition() {
+    if (!ctaButton || !footerElem) return;
+    const footerRect = footerElem.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const ctaHeight = ctaButton.offsetHeight;
+    
+    // If footer is visible in viewport (its top is above bottom edge)
+    const footerTopRelative = footerRect.top;
+    const isFooterNear = footerTopRelative <= viewportHeight - 60;
+    
+    if (isFooterNear && footerTopRelative > 0) {
+        // Add stop class to make it absolute relative to footer
+        if (!ctaButton.classList.contains("stop")) {
+            ctaButton.classList.add("stop");
+        }
+        // Adjust bottom dynamically to not overlap
+        const distanceFromFooter = 20;
+        ctaButton.style.bottom = `${footerElem.offsetHeight + distanceFromFooter}px`;
+    } else {
+        if (ctaButton.classList.contains("stop")) {
+            ctaButton.classList.remove("stop");
+            ctaButton.style.bottom = ""; // revert to CSS default
+        }
+    }
+}
+
+// original scroll logic but refined
+window.addEventListener("scroll", () => {
+    updateCtaPosition();
+});
+window.addEventListener("resize", () => {
+    updateCtaPosition();
+});
+// initial call
+updateCtaPosition();
+
+// 2. SMART SMOOTH SCROLL for nav and buttons
+document.querySelectorAll('.nav-links a, #heroExploreBtn, #ctaNavBtn, .back2top, .cta, #classesLink').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        let targetId = null;
+        // handle different buttons
+        if (this.id === 'heroExploreBtn' || this.id === 'ctaNavBtn' || this.classList?.contains('cta') || this.id === 'classesLink') {
+            e.preventDefault();
+            const learnSection = document.getElementById('basics');
+            if (learnSection) {
+                learnSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            return;
+        }
+        if (this.classList.contains('back2top')) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            e.preventDefault();
+            targetId = href.substring(1);
+            const targetElem = document.getElementById(targetId);
+            if (targetElem) {
+                targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    });
+});
+
+// 3. interactive floating CTA alert with modern feedback + optional class registration modal (simple)
+const floatingCta = document.getElementById("floatingCta");
+floatingCta.addEventListener("click", () => {
+    // mini modern toast simulation
+    showFancyToast("✨ Welcome! Our live hacking classes start every Monday. Secure your spot!");
+});
+
+// custom toast notification for modern look (without extra divs pollution)
+function showFancyToast(message) {
+    let toast = document.querySelector('.modern-toast');
+    if(toast) toast.remove();
+    const toastDiv = document.createElement('div');
+    toastDiv.className = 'modern-toast';
+    toastDiv.innerHTML = `<i class="fas fa-bolt" style="margin-right: 8px;"></i> ${message}`;
+    toastDiv.style.position = 'fixed';
+    toastDiv.style.bottom = '100px';
+    toastDiv.style.left = '50%';
+    toastDiv.style.transform = 'translateX(-50%)';
+    toastDiv.style.background = '#0f172ad9';
+    toastDiv.style.backdropFilter = 'blur(12px)';
+    toastDiv.style.color = '#e2e8f0';
+    toastDiv.style.padding = '12px 28px';
+    toastDiv.style.borderRadius = '60px';
+    toastDiv.style.fontWeight = '500';
+    toastDiv.style.zIndex = '10000';
+    toastDiv.style.border = '1px solid #38bdf8';
+    toastDiv.style.boxShadow = '0 10px 20px rgba(0,0,0,0.3)';
+    toastDiv.style.fontSize = '0.9rem';
+    toastDiv.style.fontFamily = 'Inter, sans-serif';
+    document.body.appendChild(toastDiv);
+    setTimeout(() => {
+        toastDiv.style.opacity = '0';
+        setTimeout(() => toastDiv.remove(), 400);
+    }, 2800);
+}
+
+// 4. add hover parallax and dynamic year? optional
+const heroImage = document.getElementById('right');
+if(heroImage) {
+    heroImage.addEventListener('mousemove', (e) => {
+        const rect = heroImage.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        heroImage.style.transform = `perspective(500px) rotateY(${x * 6}deg) rotateX(${y * -4}deg) scale(1.01)`;
+    });
+    heroImage.addEventListener('mouseleave', () => {
+        heroImage.style.transform = 'perspective(500px) rotateY(0deg) rotateX(0deg) scale(1)';
+    });
+}
+
+// 5. active nav highlight on scroll (modern)
+const sections = document.querySelectorAll('#home, #basics, #contact');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollPos = window.scrollY + 150;
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        if(scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
+    navLinks.forEach(link => {
+        link.style.color = '#cbd5e6';
+        link.style.fontWeight = '500';
+        if(link.getAttribute('href') === `#${current}`) {
+            link.style.color = '#38bdf8';
+            link.style.fontWeight = '600';
+        }
+    });
+});
+
+// 6. Dynamic get started button with ripple? and footer email copy placeholder
+const getStartedBtns = document.querySelectorAll('.nav-btn, #heroExploreBtn');
+getStartedBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        if(btn.id === 'heroExploreBtn') return; // already scrolls
+        if(btn.classList.contains('nav-btn') && !btn.id.includes('hero')) {
+            const learnSec = document.getElementById('basics');
+            if(learnSec) learnSec.scrollIntoView({ behavior: 'smooth' });
+            showFancyToast('📘 Explore our core curriculum below ↓');
+        }
+    });
+});
+
+// 7. Add special effect: typewriter tagline? subtle but stylish
+const heroHeading = document.querySelector('.hero-text h1');
+if(heroHeading && !heroHeading.hasAttribute('data-typed')) {
+    const originalText = heroHeading.innerText;
+    heroHeading.setAttribute('data-typed', 'true');
+    // keep original but with blinking cursor effect, not mandatory but fun
+    heroHeading.style.borderRight = '2px solid #38bdf8';
+    heroHeading.style.animation = 'blinkCursor 0.8s infinite';
+    const style = document.createElement('style');
+    style.textContent = `@keyframes blinkCursor { 0%,100%{border-color:transparent} 50%{border-color:#38bdf8}} .hero-text h1 { display: inline-block; }`;
+    document.head.appendChild(style);
+}
+
+// 8. fix any "out of place" leftover - ensure footer social icons are fontawesome,
+// also added proper icons to original socials spans
+const socialSpans = document.querySelectorAll('.socials span');
+const iconMap = {
+    'GitHub': 'fab fa-github',
+    'YouTube': 'fab fa-youtube',
+    'Facebook': 'fab fa-facebook',
+    'Discord': 'fab fa-discord',
+    'X': 'fab fa-twitter'
+};
+socialSpans.forEach(span => {
+    const txt = span.innerText.trim();
+    if(iconMap[txt]) {
+        span.innerHTML = `<i class="${iconMap[txt]}"></i> ${txt}`;
+    }
+});
+
+// also ensure the footer email looks consistent
+const footerEmailP = document.querySelector('.footer-left p');
+if(footerEmailP && footerEmailP.innerHTML.includes('hello@nexussec.io')) {
+    // already fine
+}
+
+// 9. small fix to ensure nav button active color if needed
+const styleFix = document.createElement('style');
+styleFix.textContent = `
+    .stop {
+        position: absolute !important;
+        bottom: 120px;
+        right: 28px;
+    }
+    @media(max-width: 640px) {
+        .stop {
+            bottom: 100px;
+            right: 16px;
+        }
+    }
+    .cta {
+        cursor: pointer;
+        user-select: none;
+    }
+    .info-card p, .type-group p {
+        font-size: 0.95rem;
+    }
+`;
+document.head.appendChild(styleFix);
+</script>
+</body>
+</html>
