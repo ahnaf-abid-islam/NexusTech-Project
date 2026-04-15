@@ -81,6 +81,18 @@ actually looks modern
 feels smooth
 explains things properly
 
+📝 Notes
+
+This Project will be updated regularly and I will try to make it as good as possible.
+
+🆕 Updates 
+
+Update 1 : Homepage.
+
+Update 2 : Login Files, Registration files, Dashboard file, Homepage (updated)
+
+Update 3 : (Coming Soon)
+
 -----------------------------------------------------------
 
 🧠 About Me
