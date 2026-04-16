@@ -93,6 +93,8 @@ Update 2 : Login Files, Registration files, Dashboard file, Homepage (updated)
 
 Update 3 : Recreated Dashboard page (Added Leaderboard, progress report, card info, etc.)
 
+Update 4 : (Coming Soon!)
+
 -----------------------------------------------------------
 
 🧠 About Me
